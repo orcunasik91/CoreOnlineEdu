@@ -13,14 +13,14 @@ public class AboutsController(IBaseService<About> aboutService, IMapper mapper) 
     [HttpGet]
     public IActionResult Get()
     {
-        var result = aboutService.GetList();
+        List<About> result = aboutService.GetList();
         return Ok(result);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        var result = aboutService.GetById(id);
+        About result = aboutService.GetById(id);
         return Ok(result);
     }
 
@@ -34,7 +34,7 @@ public class AboutsController(IBaseService<About> aboutService, IMapper mapper) 
     [HttpPost]
     public IActionResult Create(CreateAboutDto createAboutDto)
     {
-        var about = mapper.Map<About>(createAboutDto);
+        About about = mapper.Map<About>(createAboutDto);
         aboutService.Create(about);
         return Ok("Yeni Hakkımızda Alanı Oluşturuldu");
     }
@@ -42,7 +42,7 @@ public class AboutsController(IBaseService<About> aboutService, IMapper mapper) 
     [HttpPut]
     public IActionResult Update(UpdateAboutDto updateAboutDto)
     {
-        var about = mapper.Map<About>(updateAboutDto);
+        About about = mapper.Map<About>(updateAboutDto);
         aboutService.Update(about);
         return Ok("Hakkımızda Alanı Güncellendi");
     }
