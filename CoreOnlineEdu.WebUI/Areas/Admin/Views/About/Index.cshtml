@@ -1,2 +1,41 @@
-﻿@{ViewData["Title"] = "Hakkımızda";}
-<h3>Hakkımızda Alanı</h3>
+﻿@model List<ResultAboutDto>
+@{ViewData["Title"] = "Hakkımızda";}
+
+
+<a asp-area="Admin" asp-controller="About" asp-action="CreateAbout" style="font-size:30px;"><i class="fas fa-plus"></i></a>
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Resim 1</th>
+        <th>Resim 2</th>
+        <th>Açıklama</th>
+        <th>Madde 1</th>
+        <th>Madde 2</th>
+        <th>Madde 3</th>
+        <th>Madde 4</th>
+        <th colspan="2">İşlemler</th>
+    </tr>
+    @{
+        int counter = 0;
+        foreach (var about in Model)
+        {
+            counter++;
+            <tr>
+                <th>@counter</th>
+                <td><img src="@about.ImageUrl1" style="height:75px;width:75px;" /></td>
+                <td><img src="@about.ImageUrl2" style="height:75px;width:75px;" /></td>
+                <td>@about.Description</td>
+                <td>@about.Item1</td>
+                <td>@about.Item2</td>
+                <td>@about.Item3</td>
+                <td>@about.Item4</td>
+                <td>
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="About" asp-action="UpdateAbout" asp-route-id="@about.AboutId"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="About" asp-action="RemoveAbout" asp-route-id="@about.AboutId"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+</table>
