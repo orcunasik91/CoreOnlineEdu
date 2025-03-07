@@ -1,0 +1,10 @@
+﻿@{ViewData["Title"] = "Banner Düzenle";}
+@model UpdateBannerDto
+<form method="post">
+    <input type="hidden" asp-for="BannerId" />
+    <label>Açıklama</label>
+    <textarea asp-for="Title" class="form-control" rows="5"></textarea><br />
+    <label>1.Görsel</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" /><br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>
