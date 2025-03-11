@@ -4,8 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace CoreOnlineEdu.DataAccess.Repositories;
-public class Repository<T>(OnlineEduContext context) : IRepository<T> where T : class
+public class Repository<T> : IRepository<T> where T : class
 {
+    protected readonly OnlineEduContext context;
+
+    public Repository(OnlineEduContext _context)
+    {
+        context = _context;
+    }
+
     public DbSet<T> Table { get=> context.Set<T>(); }
     public int Count()
     {
