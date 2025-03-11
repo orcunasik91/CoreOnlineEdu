@@ -8,13 +8,14 @@ namespace CoreOnlineEdu.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class BlogsController(IBaseService<Blog> blogService, IMapper mapper) : ControllerBase
+public class BlogsController(IBlogService blogService, IMapper mapper) : ControllerBase
 {
     [HttpGet]
     public IActionResult Get()
     {
-        var result = blogService.GetList();
-        return Ok(result);
+        var result = blogService.GetBlogsWithCategoryName();
+        var blogs = mapper.Map<List<ResultBlogDto>>(result);
+        return Ok(blogs);
     }
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
