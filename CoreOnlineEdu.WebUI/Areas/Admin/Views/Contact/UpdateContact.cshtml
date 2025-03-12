@@ -1,0 +1,14 @@
+﻿@{ViewData["Title"] = "Yeni İletişim";}
+@model UpdateContactDto
+<form method="post">
+    <input type="hidden" asp-for="ContactId" />
+    <label>Adres</label>
+    <textarea asp-for="Address" class="form-control" rows="5"></textarea><br />
+    <label>Eposta</label>
+    <input type="email" asp-for="Email" class="form-control" /><br />
+    <label>Telefon</label>
+    <input type="text" asp-for="Phone" class="form-control" /><br />
+    <label>Lokasyon</label>
+    <input type="text" asp-for="MapUrl" class="form-control" /><br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>

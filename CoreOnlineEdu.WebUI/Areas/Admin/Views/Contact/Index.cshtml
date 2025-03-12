@@ -1,0 +1,49 @@
+﻿@{ViewData["Title"] = "İletişim"; }
+@model List<ResultContactDto>
+<a asp-area="Admin" asp-controller="Contact" asp-action="CreateContact" style="font-size:30px;"><i class="fas fa-plus"></i></a>
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Eposta</th>
+        <th>Adres</th>
+        <th>Telefon</th>
+        <th colspan="2">İşlemler</th>
+    </tr>
+    @{
+        int counter = 0;
+        foreach (var contact in Model)
+        {
+            counter++;
+            <tr>
+                <th>@counter</th>
+                <td>@contact.Email</td>
+                <td>@contact.Address</td>
+                <td>@contact.Phone</td>
+                <td>
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Contact" asp-action="UpdateContact" asp-route-id="@contact.ContactId"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" onclick="removeContact(@contact.ContactId)"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+<script>
+    function removeContact(id) {
+        Swal.fire({
+            title: "Silmek İstediğinize Emin Misiniz?",
+            text: "Bu işlemi geri alamazsınız!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, Sil!",
+            cancelButtonText: "Vazgeç"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Contact/RemoveContact/" + id;
+            }
+        });
+    }
+</script>
