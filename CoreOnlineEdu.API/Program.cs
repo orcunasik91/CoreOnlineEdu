@@ -1,8 +1,5 @@
-using CoreOnlineEdu.Business.Abstracts;
-using CoreOnlineEdu.Business.Concretes;
-using CoreOnlineEdu.DataAccess.Abstracts;
+using CoreOnlineEdu.API.Extensions;
 using CoreOnlineEdu.DataAccess.Context;
-using CoreOnlineEdu.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Text.Json.Serialization;
@@ -19,10 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OnlineEduContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-builder.Services.AddScoped<IBlogRepository, BlogRepository>();
-builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddServiceRegistrations();
+
 
 var app = builder.Build();
 
