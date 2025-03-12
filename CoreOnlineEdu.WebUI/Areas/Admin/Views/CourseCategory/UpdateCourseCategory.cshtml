@@ -1,0 +1,14 @@
+﻿@{ViewData["Title"] = "Kurs Kategorisini Düzenle"; }
+@model UpdateCourseCategoryDto
+<form method="post">
+    <input type="hidden" asp-for="CourseCategoryId" />
+    <label>Kategori</label>
+    <input type="text" asp-for="CategoryName" class="form-control" /><br />
+    <label>Icon</label>
+    <input type="text" asp-for="Icon" class="form-control" /><br />
+    <label>Açıklama</label>
+    <textarea asp-for="ShortDescription" class="form-control" rows="3"></textarea><br />
+    <input type="checkbox" asp-for="IsShown" class="form-check-label" />
+    <label>Ana sayfada Gösterimi</label><br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>
