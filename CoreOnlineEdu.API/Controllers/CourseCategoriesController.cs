@@ -8,7 +8,7 @@ namespace CoreOnlineEdu.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CourseCategoriesController(IBaseService<CourseCategory> courseCategoryService, IMapper mapper) : ControllerBase
+public class CourseCategoriesController(ICourseCategoryService courseCategoryService, IMapper mapper) : ControllerBase
 {
     [HttpGet]
     public IActionResult Get()
@@ -41,5 +41,17 @@ public class CourseCategoriesController(IBaseService<CourseCategory> courseCateg
         CourseCategory courseCategory = mapper.Map<CourseCategory>(updateCourseCategoryDto);
         courseCategoryService.Update(courseCategory);
         return Ok("KursKategori Güncellendi");
+    }
+    [HttpGet("ShowOnHome/{id}")]
+    public IActionResult ShowOnHome(int id)
+    {
+        courseCategoryService.ShowOnHome(id);
+        return Ok("Ana sayfada Gösteriliyor");
+    }
+    [HttpGet("DontShowOnHome/{id}")]
+    public IActionResult DontShowOnHome(int id)
+    {
+        courseCategoryService.DontShowOnHome(id);
+        return Ok("Ana sayfada Gösterilmiyor");
     }
 }
