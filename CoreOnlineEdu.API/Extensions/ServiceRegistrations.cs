@@ -14,6 +14,8 @@ public static class ServiceRegistrations
         services.AddScoped<IBlogService, BlogService>();
         services.AddScoped<ICourseCategoryRepository, CourseCategoryRepository>();
         services.AddScoped<ICourseCategoryService, CourseCategoryService>();
+        services.AddScoped<ICourseRepository, CourseRepository>();
+        services.AddScoped<ICourseService, CourseService>();
         return services;
     }
 }
