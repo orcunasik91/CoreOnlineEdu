@@ -1,0 +1,18 @@
+﻿@model UpdateCourseDto
+@{ViewData["Title"] = "Kurs Düzenle";}
+<form method="post">
+    <input type="hidden" asp-for="CourseId" />
+    <label>Kurs</label>
+    <input type="text" asp-for="CourseName" class="form-control" /><br />
+    <label>Kategori</label>
+    <select class="form-control col-sm-3" asp-items="@ViewBag.Categories" asp-for="CourseCategoryId">
+        <option>Kategori Seçiniz</option>
+    </select><br />
+    <label>Görsel</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" /><br />
+    <label>Fiyatı</label>
+    <input type="text" asp-for="Price" class="form-control" /><br />
+    <input type="checkbox" asp-for="IsShown" class="form-check-label" />
+    <label>Ana sayfada Gösterimi</label><br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
