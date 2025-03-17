@@ -1,4 +1,6 @@
-﻿namespace CoreOnlineEdu.WebUI.Dtos.CourseCategoryDtos;
+﻿using CoreOnlineEdu.WebUI.Dtos.CourseDtos;
+
+namespace CoreOnlineEdu.WebUI.Dtos.CourseCategoryDtos;
 public class ResultCourseCategoryDto
 {
     public int CourseCategoryId { get; set; }
@@ -6,4 +8,5 @@ public class ResultCourseCategoryDto
     public string Icon { get; set; }
     public string ShortDescription { get; set; }
     public bool IsShown { get; set; }
+    public List<ResultCourseDto> Courses { get; set; }
 }

@@ -6,5 +6,5 @@ public class ResultCourseDto
     public string ImageUrl { get; set; }
     public decimal Price { get; set; }
     public bool IsShown { get; set; }
-    public int CourseCategoryId { get; set; }
+    public string CategoryName { get; set; }
 }
