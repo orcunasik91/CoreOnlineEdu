@@ -1,0 +1,11 @@
+﻿@{ViewData["Title"] = "Yeni Sosyal Medya"; }
+@model CreateSocialMediaDto
+<form method="post">
+    <label>Sosyal Medya Adı</label>
+    <input type="text" asp-for="Title" class="form-control" /><br />
+    <label>Sosyal Medya Icon</label>
+    <input type="text" asp-for="Icon" class="form-control" /><br />
+    <label>Sosyal Medya Link</label>
+    <input type="text" asp-for="Url" class="form-control" /><br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
