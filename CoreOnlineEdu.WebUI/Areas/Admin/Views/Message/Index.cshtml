@@ -1,0 +1,31 @@
+﻿@model List<ResultMessageDto>
+@{ViewData["Title"] = "Mesajlar";}
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Gönderen</th>
+        <th>Email</th>
+        <th>Konu</th>
+        <th colspan="2">İşlemler</th>
+    </tr>
+    @{
+        int counter = 0;
+        foreach (var message in Model)
+        {
+            counter++;
+            <tr>
+                <th>@counter</th>
+                <td>@message.SenderName</td>
+                <td>@message.Email</td>
+                <td>@message.Subject</td>
+                <td>
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Message" asp-action="MessageDetail" asp-route-id="@message.MessageId"><i class="fas fa-th-list"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Message" asp-action="RemoveMessage" asp-route-id="@message.MessageId"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+</table>
