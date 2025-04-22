@@ -1,0 +1,10 @@
+﻿@{ViewData["Title"] = "Abone Güncelle"; }
+@model UpdateSubscriberDto
+<form method="post">
+    <input type="hidden" asp-for="SubscriberId" />
+    <label>Abone Email</label>
+    <input type="text" asp-for="Email" class="form-control" /><br />
+    <label>Durumu</label>
+    <input type="text" asp-for="IsActive" class="form-control" /><br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
