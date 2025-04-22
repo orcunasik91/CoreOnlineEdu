@@ -1,0 +1,36 @@
+﻿@model List<ResultTestimonialDto>
+@{ViewData["Title"] = "Referanslarımız";}
+
+<a asp-area="Admin" asp-controller="Testimonial" asp-action="CreateTestimonial" style="font-size:30px;"><i class="fas fa-plus"></i></a>
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Profil</th>
+        <th>Adı Soyadı</th>
+        <th>Ünvanı</th>
+        <th>Mesajı</th>
+        <th>Puan</th>
+        <th colspan="2">İşlemler</th>
+    </tr>
+    @{
+        int counter = 0;
+        foreach (var testimonial in Model)
+        {
+            counter++;
+        <tr>
+            <th>@counter</th>
+            <td><img src="@testimonial.ImageUrl" style="width:60px;height:60px;" /></td>
+            <td>@testimonial.FullName</td>
+            <td>@testimonial.Title</td>
+            <td>@testimonial.Comment</td>
+            <td>@testimonial.StarPoint</td>
+            <td>
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="Testimonial" asp-action="UpdateTestimonial" asp-route-id="@testimonial.TestimonialId"><i class="fas fa-pencil-alt"></i></a>
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="Testimonial" asp-action="RemoveTestimonial" asp-route-id="@testimonial.TestimonialId"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+    }
+</table>

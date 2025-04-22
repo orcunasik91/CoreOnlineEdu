@@ -1,0 +1,15 @@
+﻿@{ViewData["Title"] = "Yeni Referans"; }
+@model CreateTestimonialDto
+<form method="post">
+    <label>Adı Soyadı</label>
+    <input type="text" asp-for="FullName" class="form-control" /><br />
+    <label>Ünvanı</label>
+    <input type="text" asp-for="Title" class="form-control" /><br />
+    <label>Profil Resmi</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" /><br />
+    <label>Mesajı</label>
+    <input type="text" asp-for="Comment" class="form-control" /><br />
+    <label>Puanı</label>
+    <input type="number" asp-for="StarPoint" class="form-control" /><br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
