@@ -16,6 +16,12 @@ public class CourseCategoriesController(ICourseCategoryService courseCategorySer
         List<CourseCategory> result = courseCategoryService.GetList();
         return Ok(result);
     }
+    [HttpGet("GetActiveCourseCategories")]
+    public IActionResult GetActiveCourseCategories()
+    {
+        var result = courseCategoryService.GetActiveCourseCategories();
+        return Ok(result);
+    }
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
