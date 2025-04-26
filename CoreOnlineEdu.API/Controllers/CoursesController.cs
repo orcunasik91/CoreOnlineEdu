@@ -17,6 +17,13 @@ public class CoursesController(ICourseService courseService, IMapper mapper) : C
         var courses = mapper.Map<List<ResultCourseWithCategoryDto>>(result);
         return Ok(courses);
     }
+    [HttpGet("GetActiveCourses")]
+    public IActionResult GetActiveCourses()
+    {
+        var result = courseService.GetActiveCourses();
+        var courses = mapper.Map<List<ResultCourseDto>>(result);
+        return Ok(courses);
+    }
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
