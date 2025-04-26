@@ -16,6 +16,11 @@ public class CourseCategoryService : BaseService<CourseCategory>, ICourseCategor
         courseCategoryRepository.DontShowOnHome(id);
     }
 
+    public List<CourseCategory> GetActiveCourseCategories()
+    {
+        return courseCategoryRepository.GetFilterCourseCategories();
+    }
+
     public void ShowOnHome(int id)
     {
         courseCategoryRepository.ShowOnHome(id);

@@ -5,4 +5,5 @@ public interface ICourseCategoryService : IBaseService<CourseCategory>
 {
     void ShowOnHome(int id);
     void DontShowOnHome(int id);
+    List<CourseCategory> GetActiveCourseCategories();
 }

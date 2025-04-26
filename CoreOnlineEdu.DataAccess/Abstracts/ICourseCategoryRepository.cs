@@ -5,4 +5,5 @@ public interface ICourseCategoryRepository : IRepository<CourseCategory>
 {
     void ShowOnHome(int id);
     void DontShowOnHome(int id);
+    List<CourseCategory> GetFilterCourseCategories();
 }

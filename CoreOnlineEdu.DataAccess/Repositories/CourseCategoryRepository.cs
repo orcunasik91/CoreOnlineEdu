@@ -16,6 +16,11 @@ public class CourseCategoryRepository : Repository<CourseCategory>, ICourseCateg
         context.SaveChanges();
     }
 
+    public List<CourseCategory> GetFilterCourseCategories()
+    {
+        return context.CourseCategories.Where(cc => cc.IsShown.Equals(true)).ToList();
+    }
+
     public void ShowOnHome(int id)
     {
         var result = context.CourseCategories.Find(id);
