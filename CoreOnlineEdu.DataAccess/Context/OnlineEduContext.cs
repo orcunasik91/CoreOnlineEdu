@@ -1,13 +1,13 @@
 ﻿using CoreOnlineEdu.Entity.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreOnlineEdu.DataAccess.Context;
-public class OnlineEduContext : DbContext
+public class OnlineEduContext : IdentityDbContext<AppUser, AppRole, int>
 {
     public OnlineEduContext(DbContextOptions options) : base(options)
     {
     }
-
     public DbSet<About> Abouts { get; set; }
     public DbSet<Banner> Banners { get; set; }
     public DbSet<Blog> Blogs { get; set; }
