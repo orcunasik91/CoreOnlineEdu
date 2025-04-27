@@ -15,6 +15,7 @@ public class OnlineEduContext : IdentityDbContext<AppUser, AppRole, int>
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<CourseCategory> CourseCategories { get; set; }
+    public DbSet<CourseRegister> CourseRegisters { get; set; }
     public DbSet<Message> Messages { get; set; }
     public DbSet<SocialMedia> SocialMedias { get; set; }
     public DbSet<Subscriber> Subscribers { get; set; }
