@@ -1,5 +1,7 @@
 using CoreOnlineEdu.DataAccess.Context;
 using CoreOnlineEdu.Entity.Entities;
+using CoreOnlineEdu.WebUI.Services.UserServices;
+using CoreOnlineEdu.WebUI.Validators;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<OnlineEduContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<OnlineEduContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<OnlineEduContext>()
+    .AddErrorDescriber<CustomErrorDescriber>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())
