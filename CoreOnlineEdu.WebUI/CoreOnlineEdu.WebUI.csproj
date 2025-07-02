@@ -12,6 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\login-register-form\.DS_Store" />
+    <None Include="wwwroot\login-register-form\css\.DS_Store" />
+    <None Include="wwwroot\login-register-form\fonts\.DS_Store" />
+    <None Include="wwwroot\login-register-form\images\.DS_Store" />
+    <None Include="wwwroot\login-register-form\scss\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.15">
       <PrivateAssets>all</PrivateAssets>
